@@ -5,7 +5,7 @@ from graphene_django.views import GraphQLView
 from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
-    return HttpResponse("Server is running")  # ✅ simple text
+    return HttpResponse("API is running")  # ✅ root URL text
 
 urlpatterns = [
     path("", home),  # root URL
