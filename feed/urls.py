@@ -5,15 +5,17 @@ from django.http import JsonResponse
 
 # API root
 def api_root(request):
-return JsonResponse({"message": "API is running"})
+    return JsonResponse({"message": "API is running"})  # ← indented properly
 
+# DRF router
 router = DefaultRouter()
 router.register(r'posts', PostViewSet, basename='post')
 
+# URL patterns
 urlpatterns = [
-path('', api_root),
-path('auth/login/', login_view, name='login'),
-path('', include(router.urls)),
-path('posts/<int:id>/comments/', add_comment, name='add_comment'),
-path('posts/<int:id>/like/', like_post, name='like_post'),
+    path('', api_root),
+    path('auth/login/', login_view, name='login'),
+    path('', include(router.urls)),
+    path('posts/<int:id>/comments/', add_comment, name='add_comment'),
+    path('posts/<int:id>/like/', like_post, name='like_post'),
 ]
